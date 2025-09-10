@@ -2,10 +2,11 @@ import { ColorPaletteGenerator } from '@/components/color-palette-generator';
 import { ThemeSelector } from '@/components/theme-selector';
 import { ImageExtractor } from '@/components/image-extractor';
 import { FavoritesList } from '@/components/favorites-list';
-import { PaletteSharing } from '@/components/palette-sharing';
+import { ColorPsychology } from '@/components/color-psychology';
+import { KeywordGenerator } from '@/components/keyword-generator';
 import { useColorPalette } from '@/hooks/use-color-palette';
 import { useFavorites } from '@/hooks/use-favorites';
-import { MousePointer, Heart, Image, Palette } from 'lucide-react';
+import { MousePointer, Heart, Image, Palette, Brain, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Home() {
@@ -65,24 +66,32 @@ export default function Home() {
           onSaveFavorite={handleSaveFavorite}
         />
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Theme Palettes */}
-          <ThemeSelector
-            selectedTheme={selectedTheme}
-            onSelectTheme={selectTheme}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Keyword Generator */}
+          <KeywordGenerator
+            onColorsGenerated={setColors}
           />
 
           {/* Image Extractor */}
           <ImageExtractor
             onColorsExtracted={setColors}
           />
-
-          {/* Palette Sharing */}
-          <PaletteSharing
-            colors={currentColors}
-            theme={selectedTheme || undefined}
-          />
         </div>
+
+        <hr className="doodle-divider" />
+
+        {/* Color Psychology */}
+        <ColorPsychology
+          colors={currentColors}
+        />
+
+        <hr className="doodle-divider" />
+
+        {/* Theme Palettes */}
+        <ThemeSelector
+          selectedTheme={selectedTheme}
+          onSelectTheme={selectTheme}
+        />
 
         <hr className="doodle-divider" />
 
@@ -110,12 +119,12 @@ export default function Home() {
                 <p><strong>Save favorites</strong> to build your personal color collection</p>
               </div>
               <div className="flex items-start gap-3">
-                <Image className="text-chart-2 mt-1 w-5 h-5" />
-                <p><strong>Upload photos</strong> to extract beautiful color schemes</p>
+                <Search className="text-chart-2 mt-1 w-5 h-5" />
+                <p><strong>Type keywords</strong> like "cozy cafe" for themed palettes</p>
               </div>
               <div className="flex items-start gap-3">
-                <Palette className="text-chart-3 mt-1 w-5 h-5" />
-                <p><strong>Try themes</strong> for instant mood-based palettes</p>
+                <Brain className="text-chart-3 mt-1 w-5 h-5" />
+                <p><strong>Learn color psychology</strong> to understand emotional meanings</p>
               </div>
             </div>
           </div>
