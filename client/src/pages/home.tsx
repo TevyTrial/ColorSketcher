@@ -2,6 +2,7 @@ import { ColorPaletteGenerator } from '@/components/color-palette-generator';
 import { ThemeSelector } from '@/components/theme-selector';
 import { ImageExtractor } from '@/components/image-extractor';
 import { FavoritesList } from '@/components/favorites-list';
+import { PaletteSharing } from '@/components/palette-sharing';
 import { useColorPalette } from '@/hooks/use-color-palette';
 import { useFavorites } from '@/hooks/use-favorites';
 import { MousePointer, Heart, Image, Palette } from 'lucide-react';
@@ -64,7 +65,7 @@ export default function Home() {
           onSaveFavorite={handleSaveFavorite}
         />
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Theme Palettes */}
           <ThemeSelector
             selectedTheme={selectedTheme}
@@ -74,6 +75,12 @@ export default function Home() {
           {/* Image Extractor */}
           <ImageExtractor
             onColorsExtracted={setColors}
+          />
+
+          {/* Palette Sharing */}
+          <PaletteSharing
+            colors={currentColors}
+            theme={selectedTheme || undefined}
           />
         </div>
 

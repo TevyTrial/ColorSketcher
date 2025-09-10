@@ -1,37 +1,43 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { type ShareablePalette, type ColorPalette } from "@shared/schema";
 import { randomUUID } from "crypto";
 
-// modify the interface with any CRUD methods
-// you might need
-
+// Storage interface for palette sharing functionality
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // Shareable palettes
+  getSharedPalette(shareId: string): Promise<ShareablePalette | undefined>;
+  createSharedPalette(palette: ColorPalette): Promise<ShareablePalette>;
+  incrementViewCount(shareId: string): Promise<void>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private sharedPalettes: Map<string, ShareablePalette>;
 
   constructor() {
-    this.users = new Map();
+    this.sharedPalettes = new Map();
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getSharedPalette(shareId: string): Promise<ShareablePalette | undefined> {
+    return this.sharedPalettes.get(shareId);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async createSharedPalette(palette: ColorPalette): Promise<ShareablePalette> {
+    const shareId = randomUUID().substring(0, 8); // Short, shareable ID
+    const sharedPalette: ShareablePalette = {
+      shareId,
+      palette: { ...palette, shareId },
+      createdAt: new Date().toISOString(),
+      viewCount: 0,
+    };
+    this.sharedPalettes.set(shareId, sharedPalette);
+    return sharedPalette;
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async incrementViewCount(shareId: string): Promise<void> {
+    const sharedPalette = this.sharedPalettes.get(shareId);
+    if (sharedPalette) {
+      sharedPalette.viewCount++;
+      this.sharedPalettes.set(shareId, sharedPalette);
+    }
   }
 }
 

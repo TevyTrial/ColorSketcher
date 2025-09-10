@@ -1,8 +1,9 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
-import { imageUploadSchema } from "@shared/schema";
+import { insertColorPaletteSchema } from "@shared/schema";
 import { storage } from "./storage";
+import { randomUUID } from "crypto";
 
 const upload = multer({ 
   storage: multer.memoryStorage(),
@@ -19,6 +20,58 @@ const upload = multer({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Share a color palette
+  app.post("/api/share-palette", async (req, res) => {
+    try {
+      const validation = insertColorPaletteSchema.safeParse(req.body);
+      if (!validation.success) {
+        return res.status(400).json({ error: "Invalid palette data" });
+      }
+
+      // Create a full palette with server-generated fields
+      const palette = {
+        id: randomUUID(),
+        ...validation.data,
+        createdAt: new Date().toISOString(),
+      };
+
+      const sharedPalette = await storage.createSharedPalette(palette);
+      res.json({
+        shareId: sharedPalette.shareId,
+        shareUrl: `${req.protocol}://${req.get('host')}/shared/${sharedPalette.shareId}`,
+        palette: sharedPalette.palette
+      });
+    } catch (error) {
+      console.error("Share palette error:", error);
+      res.status(500).json({ error: "Failed to share palette" });
+    }
+  });
+
+  // Get a shared palette
+  app.get("/api/shared/:shareId", async (req, res) => {
+    try {
+      const { shareId } = req.params;
+      const sharedPalette = await storage.getSharedPalette(shareId);
+      
+      if (!sharedPalette) {
+        return res.status(404).json({ error: "Shared palette not found" });
+      }
+
+      // Increment view count and get updated palette
+      await storage.incrementViewCount(shareId);
+      const updatedPalette = await storage.getSharedPalette(shareId);
+      
+      res.json({
+        palette: sharedPalette.palette,
+        viewCount: updatedPalette?.viewCount || sharedPalette.viewCount,
+        createdAt: sharedPalette.createdAt
+      });
+    } catch (error) {
+      console.error("Get shared palette error:", error);
+      res.status(500).json({ error: "Failed to load shared palette" });
+    }
+  });
+
   // Image upload endpoint for server-side processing
   app.post("/api/upload-image", upload.single("image"), async (req, res) => {
     try {
