@@ -8,6 +8,7 @@ import { useColorPalette } from '@/hooks/use-color-palette';
 import { useFavorites } from '@/hooks/use-favorites';
 import { MousePointer, Heart, Image, Palette, Brain, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import backgroundImage from '@assets/79b97141159fdc07fa3f56d83da81e43_1757795967622.jpg';
 
 export default function Home() {
   const { 
@@ -44,21 +45,23 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-background text-foreground min-h-screen relative overflow-x-hidden">
-      {/* Header */}
-      <header className="relative py-6 px-4 text-center">
-        <div className="notebook-holes max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-sketch font-bold text-foreground mb-2 transform -rotate-1">
-            🎨 Color Palette Generator
-          </h1>
-          <p className="text-lg md:text-xl font-handwritten text-muted-foreground transform rotate-1">
-            Your sketchy, playful color inspiration tool! ✨
-          </p>
-        </div>
-        <hr className="doodle-divider" />
-      </header>
+    <div className="desktop-bg-container text-foreground min-h-screen relative overflow-x-hidden">
+      {/* Center Container - Beige background with margins on desktop only */}
+      <div className="center-content-container">
+        {/* Header */}
+        <header className="relative py-6 px-4 text-center">
+          <div className="notebook-holes max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-sketch font-bold text-foreground mb-2 transform -rotate-1">
+              🎨 Color Palette Generator
+            </h1>
+            <p className="text-lg md:text-xl font-handwritten text-muted-foreground transform rotate-1">
+              Your sketchy, playful color inspiration tool! ✨
+            </p>
+          </div>
+          <hr className="doodle-divider" />
+        </header>
 
-      <main className="max-w-6xl mx-auto px-4 pb-12">
+        <main className="max-w-6xl mx-auto px-4 pb-12">
         {/* Main Generator */}
         <ColorPaletteGenerator
           colors={currentColors}
@@ -129,17 +132,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+        </main>
 
-      {/* Footer */}
-      <footer className="text-center py-8 text-muted-foreground">
-        <p className="font-handwritten text-sm">
-          Made with 💖 for creative souls everywhere
-        </p>
-        <p className="font-handwritten text-xs mt-2">
-          Share your colorful creations! #PaletteGenerator ✨
-        </p>
-      </footer>
+        {/* Footer */}
+        <footer className="text-center py-8 text-muted-foreground">
+          <p className="font-handwritten text-sm">
+            Made with 💖 for creative souls everywhere
+          </p>
+          <p className="font-handwritten text-xs mt-2">
+            Share your colorful creations! #PaletteGenerator ✨
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
