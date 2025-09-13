@@ -283,36 +283,65 @@
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 0;
     }
 
     .center-content-container {
-      /* Desktop: Center container with margins and beige background */
+      /* Desktop: Center container with much larger margins and beige background */
       background: var(--background);
-      margin: 0 auto;
-      max-width: 1200px;
-      margin-left: 80px;
-      margin-right: 80px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
+      max-width: 900px;
+      margin-left: 180px;
+      margin-right: 180px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+      border-radius: 25px;
       overflow: hidden;
     }
   }
 
-  /* Large Desktop - Increase margins for very wide screens */
+  /* Large Desktop - Increase margins even more for very wide screens */
   @media (min-width: 1440px) {
     .center-content-container {
-      margin-left: 120px;
-      margin-right: 120px;
-      max-width: 1400px;
+      margin-left: 250px;
+      margin-right: 250px;
+      max-width: 1000px;
     }
   }
 
-  /* Extra Large Desktop - Further increase margins */
+  /* Extra Large Desktop - Maximum margins for ultra-wide screens */
   @media (min-width: 1920px) {
     .center-content-container {
-      margin-left: 200px;
-      margin-right: 200px;
-      max-width: 1600px;
+      margin-left: 350px;
+      margin-right: 350px;
+      max-width: 1100px;
     }
+  }
+
+  /* Keyword Palette Scrollable Area */
+  .keyword-palette-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+  .keyword-palette-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .keyword-palette-scroll::-webkit-scrollbar-track {
+    background: var(--muted);
+    border-radius: 10px;
+  }
+
+  .keyword-palette-scroll::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+    border: 2px solid var(--muted);
+  }
+
+  .keyword-palette-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
   }
 }

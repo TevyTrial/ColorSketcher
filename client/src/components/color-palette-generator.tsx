@@ -43,17 +43,17 @@ export function ColorPaletteGenerator({
           ✨ Your Current Palette ✨
         </h2>
         
-        {/* Current Palette Display */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
+        {/* Current Palette Display - Smaller */}
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6 max-w-2xl mx-auto">
           {colors.map((color, index) => (
             <div key={index} className="text-center group">
               <div 
-                className="watercolor-swatch w-24 h-24 md:w-28 md:h-28 mx-auto mb-3 cursor-pointer relative" 
+                className="watercolor-swatch w-16 h-16 md:w-20 md:h-20 mx-auto mb-2 cursor-pointer relative" 
                 style={{ background: color }}
                 onClick={() => handleCopyColor(color)}
                 data-testid={`color-swatch-${index}`}
               />
-              <p className="font-handwritten text-sm font-medium" data-testid={`color-hex-${index}`}>
+              <p className="font-handwritten text-xs font-medium" data-testid={`color-hex-${index}`}>
                 {color}
               </p>
               <button 

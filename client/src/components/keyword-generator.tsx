@@ -103,7 +103,7 @@ export function KeywordGenerator({ onColorsGenerated }: KeywordGeneratorProps) {
         </div>
 
         {/* Results */}
-        <div className="space-y-4">
+        <div className="keyword-palette-scroll space-y-4">
           {displayPalettes.length > 0 ? (
             displayPalettes.map((palette, index) => (
               <div
