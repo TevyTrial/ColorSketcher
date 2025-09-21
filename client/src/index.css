@@ -277,21 +277,17 @@
   /* Desktop Styles - Apply background image and center container with margins */
   @media (min-width: 1024px) {
     .desktop-bg-container {
-      /* Desktop: Show the background image */
-      background-image: url('/attached_assets/79b97141159fdc07fa3f56d83da81e43_1757795967622.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      /* Desktop: Background image applied via inline styles in React component */
       display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 40px 0;
+      min-height: 100vh;
     }
 
     .center-content-container {
-      /* Desktop: Center container with much larger margins and beige background */
-      background: var(--background);
+      /* Desktop: Center container with pale beige background and original drop shadow */
+      background: hsl(47.14, 87.5%, 96.86%); /* Pale beige color */
       max-width: 900px;
       margin-left: 180px;
       margin-right: 180px;

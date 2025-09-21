@@ -37,7 +37,7 @@ export function ColorPaletteGenerator({
   };
 
   return (
-    <section className="notebook-holes mb-12">
+    <section className="mb-12">
       <div className="sketchy-border p-6 md:p-8 bg-card">
         <h2 className="text-2xl md:text-3xl font-sketch font-semibold mb-6 text-center transform -rotate-1">
           ✨ Your Current Palette ✨
@@ -53,7 +53,7 @@ export function ColorPaletteGenerator({
                 onClick={() => handleCopyColor(color)}
                 data-testid={`color-swatch-${index}`}
               />
-              <p className="font-handwritten text-xs font-medium" data-testid={`color-hex-${index}`}>
+              <p className="font-handwritten text-base font-medium" data-testid={`color-hex-${index}`}>
                 {color}
               </p>
               <button 

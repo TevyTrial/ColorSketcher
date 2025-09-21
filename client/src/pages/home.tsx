@@ -9,6 +9,7 @@ import { useFavorites } from '@/hooks/use-favorites';
 import { MousePointer, Heart, Image, Palette, Brain, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import backgroundImage from '@assets/79b97141159fdc07fa3f56d83da81e43_1757795967622.jpg';
+import bgImage from '@assets/bg.jpg';
 
 export default function Home() {
   const { 
@@ -45,12 +46,21 @@ export default function Home() {
   };
 
   return (
-    <div className="desktop-bg-container text-foreground min-h-screen relative overflow-x-hidden">
+    <div 
+      className="desktop-bg-container text-foreground min-h-screen relative overflow-x-hidden"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       {/* Center Container - Beige background with margins on desktop only */}
       <div className="center-content-container">
         {/* Header */}
         <header className="relative py-6 px-4 text-center">
-          <div className="notebook-holes max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-sketch font-bold text-foreground mb-2 transform -rotate-1">
               🎨 Color Palette Generator
             </h1>
@@ -107,7 +117,7 @@ export default function Home() {
         />
 
         {/* Help Tips */}
-        <section className="notebook-holes">
+        <section>
           <div className="sketchy-border p-6 bg-accent">
             <h2 className="text-xl font-sketch font-semibold mb-4 transform -rotate-1 text-center">
               💡 Quick Tips

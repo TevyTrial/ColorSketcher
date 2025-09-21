@@ -83,7 +83,7 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
   };
 
   return (
-    <section className="notebook-holes">
+    <section>
       <div className="sketchy-border p-6 bg-card">
         <h2 className="text-2xl font-sketch font-semibold mb-6 transform -rotate-1 text-center">
           📷 Extract from Image

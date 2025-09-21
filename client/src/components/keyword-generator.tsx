@@ -59,7 +59,7 @@ export function KeywordGenerator({ onColorsGenerated }: KeywordGeneratorProps) {
   const displayPalettes = showSuggestions ? getRandomPalettes(6) : searchResults;
 
   return (
-    <section className="notebook-holes">
+    <section>
       <div className="sketchy-border p-6 bg-card">
         <h2 className="text-2xl font-sketch font-semibold mb-6 transform -rotate-1 text-center">
           🔍 Keyword Palettes
@@ -70,7 +70,7 @@ export function KeywordGenerator({ onColorsGenerated }: KeywordGeneratorProps) {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Try 'cozy cafe', 'ocean breeze', 'vintage retro'..."
+            placeholder="Try 'cozy cafe', 'vintage retro'..."
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border-2 border-border rounded-lg bg-background font-handwritten placeholder:text-muted-foreground focus:outline-none focus:border-primary"
@@ -167,7 +167,7 @@ export function KeywordGenerator({ onColorsGenerated }: KeywordGeneratorProps) {
         {/* Help Text */}
         {showSuggestions && (
           <div className="mt-6 pt-4 border-t border-border">
-            <h4 className="font-sketch font-semibold text-sm mb-3">💡 Keyword Examples:</h4>
+            <h4 className="font-sketch font-semibold text-base mb-3">💡 Keyword Examples:</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs font-handwritten text-muted-foreground">
               <div>
                 <p><strong>Nature:</strong> forest, ocean, sunset</p>

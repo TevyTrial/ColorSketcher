@@ -26,7 +26,7 @@ export function FavoritesList({
   };
 
   return (
-    <section className="notebook-holes mb-12">
+    <section className="mb-12">
       <div className="sketchy-border p-6 bg-card">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-sketch font-semibold transform rotate-1">
