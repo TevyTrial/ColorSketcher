@@ -11,7 +11,7 @@ const themeLabels: Record<ThemeKey, { icon: string; name: string; description: s
   forest: { icon: '🌲', name: 'Forest', description: 'Natural & earthy' },
   pastel: { icon: '🌸', name: 'Pastel', description: 'Soft & dreamy' },
   retro: { icon: '📼', name: 'Retro', description: 'Vintage vibes' },
-  monochrome: { icon: '⚫', name: 'Monochrome', description: 'Classic & timeless' },
+  monochrome: { icon: '⚫', name: 'Minimalist', description: 'Classic & timeless' },
 };
 
 export function ThemeSelector({ selectedTheme, onSelectTheme }: ThemeSelectorProps) {

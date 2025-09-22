@@ -16,6 +16,8 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
   const [cursorPosition, setCursorPosition] = useState<{x: number, y: number} | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const [pixelGrid, setPixelGrid] = useState<string[][]>([]);
+  const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
+  const [isLongPressing, setIsLongPressing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -141,6 +143,123 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
     setCursorPosition(null);
   };
 
+  // Mobile touch handlers for long press
+  const handleTouchStart = (e: React.TouchEvent<HTMLImageElement>) => {
+    if (!isColorPickerMode || !imageRef.current) return;
+
+    const touch = e.touches[0];
+    if (!touch) return;
+
+    // Clear any existing timer
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+    }
+
+    // Start long press timer
+    const timer = setTimeout(() => {
+      setIsLongPressing(true);
+      handleTouchMove(e); // Show grid at initial touch position
+    }, 500); // 500ms long press threshold
+
+    setLongPressTimer(timer);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLImageElement>) => {
+    if (!isColorPickerMode || !imageRef.current || !isLongPressing) return;
+
+    // Prevent scrolling when long pressing
+    e.preventDefault();
+
+    const touch = e.touches[0];
+    if (!touch) return;
+
+    const img = imageRef.current;
+    const rect = img.getBoundingClientRect();
+    const scaleX = img.naturalWidth / rect.width;
+    const scaleY = img.naturalHeight / rect.height;
+    
+    const x = Math.floor((touch.clientX - rect.left) * scaleX);
+    const y = Math.floor((touch.clientY - rect.top) * scaleY);
+
+    // Update cursor position for the preview grid
+    setCursorPosition({
+      x: touch.pageX,
+      y: touch.pageY
+    });
+    setShowPreview(true);
+
+    // Generate pixel grid (same logic as mouse move)
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d')!;
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    
+    ctx.drawImage(img, 0, 0);
+    
+    // Get center pixel color for preview
+    const centerPixel = ctx.getImageData(x, y, 1, 1);
+    const r = centerPixel.data[0];
+    const g = centerPixel.data[1];
+    const b = centerPixel.data[2];
+    
+    const hexColor = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
+    setPreviewColor(hexColor);
+    
+    // Sample 6x6 grid around touch position
+    const gridSize = 6;
+    const offset = Math.floor(gridSize / 2);
+    const grid: string[][] = [];
+    
+    for (let row = 0; row < gridSize; row++) {
+      const gridRow: string[] = [];
+      for (let col = 0; col < gridSize; col++) {
+        const sampleX = Math.max(0, Math.min(img.naturalWidth - 1, x - offset + col));
+        const sampleY = Math.max(0, Math.min(img.naturalHeight - 1, y - offset + row));
+        
+        const pixelData = ctx.getImageData(sampleX, sampleY, 1, 1);
+        const pixelR = pixelData.data[0];
+        const pixelG = pixelData.data[1];
+        const pixelB = pixelData.data[2];
+        
+        const pixelHex = `#${pixelR.toString(16).padStart(2, '0')}${pixelG.toString(16).padStart(2, '0')}${pixelB.toString(16).padStart(2, '0')}`.toUpperCase();
+        gridRow.push(pixelHex);
+      }
+      grid.push(gridRow);
+    }
+    
+    setPixelGrid(grid);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLImageElement>) => {
+    // Clear long press timer
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+
+    // If this was a long press, hide the preview
+    if (isLongPressing) {
+      setShowPreview(false);
+      setCursorPosition(null);
+      setIsLongPressing(false);
+      return;
+    }
+
+    // Otherwise, handle as normal tap (existing click behavior)
+    // Convert touch event to click-like behavior
+    const touch = e.changedTouches[0];
+    if (touch && imageRef.current) {
+      const syntheticEvent = {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+        pageX: touch.pageX,
+        pageY: touch.pageY
+      } as React.MouseEvent<HTMLImageElement>;
+      
+      handleImageClick(syntheticEvent);
+    }
+  };
+
   const handlePixelGridClick = (color: string) => {
     if (pickedColors.length >= 5) {
       toast({
@@ -249,6 +368,11 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
     setCursorPosition(null);
     setShowPreview(false);
     setPixelGrid([]);
+    setIsLongPressing(false);
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
   };
 
   const toggleColorPickerMode = () => {
@@ -351,13 +475,18 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
                   onClick={handleImageClick}
                   onMouseMove={handleImageMouseMove}
                   onMouseLeave={handleImageMouseLeave}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                   data-testid="preview-image"
+                  style={{ touchAction: isColorPickerMode ? 'none' : 'auto' }}
                 />
               </div>
               {isColorPickerMode && (
                 <div className="absolute top-2 left-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
                   <Pipette className="w-3 h-3 inline mr-1" />
-                  Click to pick colors ({pickedColors.length}/5)
+                  <span className="hidden sm:inline">Click to pick colors ({pickedColors.length}/5)</span>
+                  <span className="sm:hidden">Tap or long press to pick ({pickedColors.length}/5)</span>
                   {showPreview && <span className="ml-2 text-green-400">• ACTIVE</span>}
                 </div>
               )}
