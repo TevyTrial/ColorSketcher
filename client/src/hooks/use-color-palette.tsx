@@ -13,7 +13,7 @@ export function useColorPalette() {
   }, []);
 
   const selectTheme = useCallback((theme: ThemeKey) => {
-    setCurrentColors(THEME_PALETTES[theme]);
+    setCurrentColors([...THEME_PALETTES[theme]]);
     setSelectedTheme(theme);
   }, []);
 

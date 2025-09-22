@@ -8,7 +8,6 @@ import { useColorPalette } from '@/hooks/use-color-palette';
 import { useFavorites } from '@/hooks/use-favorites';
 import { MousePointer, Heart, Image, Palette, Brain, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import backgroundImage from '@assets/79b97141159fdc07fa3f56d83da81e43_1757795967622.jpg';
 import bgImage from '@assets/bg.jpg';
 
 export default function Home() {

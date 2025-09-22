@@ -88,11 +88,11 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     tags: ["cool", "winter", "blue", "crisp"]
   },
   {
-  keyword: "flower cat",
+  keyword: "calico cat",
   category: "nature",
-  colors: ["#FFB6C1", "#DDA0DD", "#98FB98", "#F0E68C", "#FFF8DC"],
-  description: "Soft floral colors inspired by cats playing in flower gardens",
-  tags: ["cute", "floral", "cat", "playful"]
+  colors: ["#141414ff", "#e5b33eff", "#a67c38ff", "#686868ff", "#ffffffff"],
+  description: "Playful mix of warm oranges, and soft neutrals inspired by calico cats",
+  tags: ["playful", "warm", "cute", "neutral"]
 },
 {
   keyword: "underwater coral",
@@ -137,6 +137,63 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     description: "Frozen blues with shimmering northern lights",
     tags: ["aurora", "icy", "blue", "northern lights"]
   },
+  {
+  keyword: "ancient redwood",
+  category: "nature",
+  colors: ["#8B4513", "#A0522D", "#654321", "#D2691E", "#F4A460"],
+  description: "Deep, grounded browns of ancient redwood forests",
+  tags: ["earthy", "natural", "wood", "grounded"]
+},
+{
+  keyword: "desert sage",
+  category: "nature",
+  colors: ["#9CAF88", "#C8D5B9", "#F5F0E8", "#E6DDD4", "#D4C5B9"],
+  description: "Muted sage greens with sandy desert undertones",
+  tags: ["earthy", "natural", "sage", "desert"]
+},
+{
+  keyword: "mountain mist",
+  category: "nature",
+  colors: ["#8B9DC3", "#DFE7FD", "#F7F9FF", "#E8E8E8", "#C5C5C5"],
+  description: "Cool mountain air with misty morning clouds",
+  tags: ["cool", "misty", "mountain", "serene"]
+},
+{
+  keyword: "river stone",
+  category: "nature",
+  colors: ["#696969", "#808080", "#A9A9A9", "#D3D3D3", "#F5F5F5"],
+  description: "Smooth gray tones of weathered river stones",
+  tags: ["gray", "stone", "weathered", "natural"]
+},
+{
+  keyword: "wildflower field",
+  category: "nature",
+  colors: ["#DA70D6", "#FF69B4", "#98FB98", "#FFE4B5", "#87CEEB"],
+  description: "Mixed wildflower colors dancing in meadow breeze",
+  tags: ["wildflower", "colorful", "meadow", "mixed"]
+},
+{
+  keyword: "pine forest",
+  category: "nature",
+  colors: ["#013220", "#2F4F2F", "#228B22", "#8FBC8F", "#F0FFF0"],
+  description: "Deep evergreen with fresh pine needle highlights",
+  tags: ["pine", "evergreen", "forest", "fresh"]
+},
+{
+  keyword: "clay earth",
+  category: "nature",
+  colors: ["#B87333", "#CD853F", "#DEB887", "#F5DEB3", "#FAEBD7"],
+  description: "Rich clay soil tones with natural earth pigments",
+  tags: ["clay", "earth", "soil", "natural"]
+},
+{
+  keyword: "morning dew",
+  category: "nature",
+  colors: ["#F0FFFF", "#E0FFFF", "#B0E0E6", "#87CEEB", "#4682B4"],
+  description: "Fresh morning dew with gentle blue undertones",
+  tags: ["fresh", "morning", "dew", "gentle"]
+},
+
 
   // Moods
   {
@@ -217,11 +274,61 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   tags: ["pastel", "rainbow", "whimsical", "gentle"]
 },
 {
-  keyword: "digital zen",
+  keyword: "grandmother's quilt",
+  category: "moods",
+  colors: ["#DDA0DD", "#F0E68C", "#98FB98", "#FFB6C1", "#E6E6FA"],
+  description: "Soft, comforting colors of handmade granny squares and vintage quilts",
+  tags: ["comfort", "vintage", "granny square", "handmade"]
+},
+{
+  keyword: "cozy cabin",
+  category: "moods",
+  colors: ["#8B4513", "#CD853F", "#F4A460", "#FFEFD5", "#2F4F4F"],
+  description: "Warm, stable colors that provide comfort and security",
+  tags: ["comfort", "stability", "cozy", "warm"]
+},
+{
+  keyword: "afternoon tea",
+  category: "moods",
+  colors: ["#D2691E", "#F4A460", "#FFEFD5", "#E6E6FA", "#DDA0DD"],
+  description: "Gentle, reassuring colors of a peaceful tea time",
+  tags: ["comfort", "peaceful", "tea", "gentle"]
+},
+{
+  keyword: "cotton comfort",
+  category: "moods",
+  colors: ["#FFFAF0", "#F5F5DC", "#E6E6FA", "#D3D3D3", "#C0C0C0"],
+  description: "Soft, reliable neutrals that feel like cotton comfort",
+  tags: ["comfort", "cotton", "soft", "reliable"]
+},
+{
+  keyword: "warm embrace",
+  category: "moods",
+  colors: ["#CD853F", "#D2691E", "#F4A460", "#FFEFD5", "#8B4513"],
+  description: "Enveloping warm tones that provide emotional stability",
+  tags: ["warm", "comfort", "stability", "embrace"]
+},
+{
+  keyword: "zen garden",
+  category: "moods",
+  colors: ["#F5F5F5", "#E8E8E8", "#D3D3D3", "#A9A9A9", "#696969"],
+  description: "Balanced, stable grays for mindful tranquility",
+  tags: ["zen", "stability", "balanced", "mindful"]
+},
+{
+  keyword: "library quiet",
+  category: "moods",
+  colors: ["#8B4513", "#A0522D", "#D2691E", "#F5DEB3", "#2F4F4F"],
+  description: "Scholarly browns and muted tones for focused concentration",
+  tags: ["quiet", "scholarly", "focused", "muted"]
+},
+
+{
+  keyword: "digital meditation",
   category: "moods",
   colors: ["#F0F8FF", "#E0F2E7", "#D4E4F7", "#C5D9ED", "#B8C5D1"],
   description: "Calm tech-inspired blues and whites for digital meditation",
-  tags: ["calm", "digital", "zen", "peaceful"]
+  tags: ["calm", "digital", "peaceful"]
 },
   {
     keyword: "golden curry burst",
@@ -293,6 +400,7 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     description: "Soft yellow “butter” meets vibrant cherry red tones — playful contrast, warm energy",
     tags: ["warm", "bright", "cheerful", "contrast"]
   },
+  
 
   // Places
   {
@@ -319,7 +427,7 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   {
     keyword: "hong kong neon harbour",
     category: "places",
-    colors: ["#FF3E3E", "#FF9F1C", "#00B7FF", "#FFD700", "#1C2331"],
+    colors: ["#fc3232ff", "#FF9F1C", "#00B7FF", "#FFD700", "#1C2331"],
     description: "Fiery red lanterns, golden signs, neon blue reflections over harbour night, dark skies",
     tags: ["neon", "urban", "night", "hong kong"]
   },
@@ -331,12 +439,62 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     tags: ["tropical", "bright", "vacation", "turquoise"]
   },
   {
+    keyword: "Ocean Sorbet",
+    category: "places",
+    colors: ["#D9895B", "#F2E9E9", "#46658C", "#4A6D8C", "#2D2D2D"],
+    description: "With oceanblues and peachy corals, this palette has a touch of exotic",
+    tags: ["ocean", "tropical", "refreshing", "bright"]
+  },
+  {
     keyword: "rustic cabin",
     category: "places",
     colors: ["#8B4513", "#A0522D", "#D2691E", "#F4A460", "#FFEFD5"],
     description: "Warm, natural wood tones of a mountain retreat",
     tags: ["rustic", "wood", "natural", "cozy"]
   },
+  {
+    keyword: "brighton beach",
+    category: "places",
+    colors: ["#f1784cff", "#fde24bff", "#1E90FF", "#00CED1", "#FFFFFF"],
+    description: "Vibrant beach huts and sunny seaside vibes",
+    tags: ["beach", "bright", "seaside", "vibrant"]
+  },
+  {
+  keyword: "jeju island breeze",
+  category: "places",
+  colors: ["#7c7c7cff", "#6db06dff", "#F58430", "#f4edafff", "#20B2AA"],
+  description: "Fresh ocean breeze and green landscapes of Korea's Jeju Island",
+  tags: ["jeju", "korean", "ocean", "fresh"]
+},
+{
+  keyword: "yufuin hot spring",
+  category: "places",
+  colors: ["#486f59ff", "#9a8f85ff", "#D4B996", "#F5E6D3", "#ff5441ff"],
+  description: "Peaceful earth tones inspired by Yufuin's natural hot springs, wooden ryokan architecture, and misty mountain mornings in Oita Prefecture",
+  tags: ["japanese", "hot spring", "peaceful", "earth tone"]
+},
+{
+  keyword: "toledo golden hour",
+  category: "places",
+  colors: ["#DAA520", "#CD853F", "#D2691E", "#F4A460", "#8B4513"],
+  description: "Warm golden stones and terracotta roofs of historic Toledo, Spain",
+  tags: ["toledo", "spanish", "golden", "historic"]
+},
+{
+  keyword: "chiang mai temple",
+  category: "places",
+  colors: ["#88af90ff", "#c07a58ff", "#fce8c2ff", "#98432cff", "#ffc219ff"],
+  description: "Golden temples and vibrant colors of Northern Thailand's cultural heart",
+  tags: ["chiang mai", "thai", "temple", "cultural"]
+},
+{
+  keyword: "cyberpunk alley",
+  category: "places",
+  colors: ["#FF00FF", "#00FFFF", "#FF0080", "#8A2BE2", "#000000"],
+  description: "Neon-soaked dystopian streets with electric pink and cyan",
+  tags: ["cyberpunk", "neon", "dystopian", "electric"]
+},
+
    {
     keyword: "harbor dusk",
     category: "places",
@@ -347,7 +505,7 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   {
   keyword: "cyber bloom",
   category: "places",
-  colors: ["#00FFFF", "#FF1493", "#8A2BE2", "#00FF00", "#1C1C1C"],
+  colors: ["#00FFFF", "#FF1493", "#FF7033", "#ADFFAD", "#282A3E"],
   description: "Futuristic neon garden with dark tech undertones",
   tags: ["neon", "futuristic", "tech", "vibrant"]
 },
@@ -387,7 +545,7 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     tags: ["garden", "pastel", "peaceful"]
   },
   {
-  keyword: "fish and chips",
+  keyword: "fish and chips shop",
   category: "places",
   colors: ["#DAA520", "#F4A460", "#8FBC8F", "#2E8B57", "#F5F5DC"],
   description: "Golden crispy colors with fresh green mushy peas - classic British comfort",
@@ -413,6 +571,13 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   colors: ["#DEB887", "#F4A460", "#FFEFD5", "#D2691E", "#8B4513"],
   description: "Warm bread and pastry colors with rich coffee undertones",
   tags: ["bakery", "warm", "bread", "cozy"]
+},
+{
+  keyword: "digital matrix",
+  category: "places",
+  colors: ["#00FF41", "#003300", "#008F11", "#39FF14", "#000000"],
+  description: "Green digital rain and matrix code aesthetics",
+  tags: ["cyberpunk", "digital", "matrix", "code"]
 },
 
 
@@ -501,6 +666,27 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   description: "Spooky yet magical colors of autumn Halloween nights",
   tags: ["halloween", "spooky", "magical", "autumn"]
 },
+{
+  keyword: "y2k millennium",
+  category: "seasons",
+  colors: ["#FF00FF", "#00FFFF", "#FFFF00", "#FF69B4", "#7CFC00"],
+  description: "Electric millennium colors of the Y2K era and digital optimism",
+  tags: ["y2k", "millennium", "electric", "digital"]
+},
+{
+  keyword: "y2k frosted tips",
+  category: "seasons",
+  colors: ["#E0E0E0", "#C0C0C0", "#00BFFF", "#FF1493", "#32CD32"],
+  description: "Metallic silver with bright accent colors of early 2000s fashion",
+  tags: ["y2k", "metallic", "fashion", "2000s"]
+},
+{
+  keyword: "new millennium party",
+  category: "seasons",
+  colors: ["#800080", "#FF00FF", "#00CED1", "#FFD700", "#FF4500"],
+  description: "Celebratory colors of the year 2000 countdown party",
+  tags: ["y2k", "party", "celebration", "2000"]
+},
 
   // Styles
   {
@@ -535,8 +721,15 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   keyword: "neon naturals",
   category: "styles",
   colors: ["#39FF14", "#FF073A", "#1B03A3", "#FFD700", "#FF6600"],
-  description: "Electric brights balanced with natural undertones - 2025's digital nature trend",
+  description: "Electric brights balanced with natural undertones",
   tags: ["neon", "bold", "electric", "modern"]
+},
+{
+  keyword: "2025 trends",
+  category: "styles",
+  colors: ["#373737", "#748794", "#768578.", "#C0777C", "#F4EEF1"],
+  description: "A trendy, balanced palette for 2025 with warm and cool tones",
+  tags: ["trendy", "balanced", "earthy", "2025"]
 },
 {
   keyword: "midnight luxe",
@@ -548,16 +741,30 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
 {
   keyword: "bubble tea aesthetic",
   category: "styles",
-  colors: ["#DDA0DD", "#FFB6C1", "#98FB98", "#F0E68C", "#E6E6FA"],
+  colors: ["#fbc4a7", "#ffb467", "#583b39", "#f0dfc5", "#85695d"],
   description: "Soft, milky pastels inspired by popular bubble tea flavors",
   tags: ["bubble tea", "aesthetic", "milky", "trendy"]
 },
 {
   keyword: "unicorn magic",
   category: "styles",
-  colors: ["#FF69B4", "#9370DB", "#00CED1", "#FFD700", "#FF1493"],
+  colors: ["#FF69B4", "#9370DB", "#00CED1", "#FFD700", "#f15aabff"],
   description: "Magical, iridescent colors that sparkle with unicorn dreams",
   tags: ["unicorn", "magical", "sparkle", "fantasy"]
+},
+{
+  keyword: "pastel goth",
+  category: "styles",
+  colors: ["#E6E6FA", "#FFB6C1", "#98FB98", "#DDA0DD", "#2F2F2F"],
+  description: "Soft pastels balanced with dark gothic undertones",
+  tags: ["pastel", "goth", "soft", "dark"]
+},
+{
+  keyword: "dreamy pastels",
+  category: "styles",
+  colors: ["#FFE1E6", "#E1FFE1", "#E1E1FF", "#FFFFE1", "#E1FFFF"],
+  description: "Ultra-soft dreamy pastels for ethereal, cloud-like aesthetics",
+  tags: ["pastel", "dreamy", "soft", "ethereal"]
 },
   {
     keyword: "cosmic purple twilight",
@@ -593,6 +800,13 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     colors: ["#8B008B", "#FF6347", "#FFD700", "#20B2AA", "#CD853F"],
     description: "Creative, eclectic colors of artistic expression",
     tags: ["bohemian", "artistic", "creative", "eclectic"]
+  },
+  {
+    keyword: "muted earth",
+    category: "styles",
+    colors: ["#1F4976", "#488691", "#816B58", "#4E6447", "#364D32"],
+    description: "Subdued, earthy tones for a grounded aesthetic",
+    tags: ["earthy", "muted", "grounded", "natural"]
   },
   {
     keyword: "my personal favourite",
