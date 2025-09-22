@@ -66,7 +66,7 @@ export const THEME_PALETTES = {
   forest: ['#52C41A', '#73D13D', '#237804', '#A0D468', '#8FBC8F'],
   pastel: ['#FFB7C5', '#C7CEEA', '#B5EAD7', '#FFE5B4', '#F0E6FF'],
   retro: ['#FF7F50', '#F4A460', '#DDA0DD', '#20B2AA', '#CD853F'],
-  monochrome: ['#2F2F2F', '#5F5F5F', '#8F8F8F', '#BFBFBF', '#E0E0E0']
+  minimalist: ['#2F2F2F', '#5F5F5F', '#8F8F8F', '#BFBFBF', '#E0E0E0']
 } as const;
 
 export type ThemeKey = keyof typeof THEME_PALETTES;
