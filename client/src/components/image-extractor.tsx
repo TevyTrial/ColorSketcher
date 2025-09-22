@@ -237,8 +237,42 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
       setLongPressTimer(null);
     }
 
-    // If this was a long press, hide the preview
+    // If this was a long press, auto-add center color and hide preview
     if (isLongPressing) {
+      // Add the center color (previewColor) to palette
+      if (pickedColors.length < 5 && !pickedColors.includes(previewColor)) {
+        const newColors = [...pickedColors, previewColor];
+        setPickedColors(newColors);
+        
+        toast({
+          title: "Color picked!",
+          description: `Added ${previewColor} to your palette`,
+        });
+
+        // If we have 5 colors, automatically send them
+        if (newColors.length === 5) {
+          onColorsExtracted(newColors);
+          setIsColorPickerMode(false);
+          toast({
+            title: "Palette complete!",
+            description: "Your custom 5-color palette is ready!",
+          });
+        }
+      } else if (pickedColors.includes(previewColor)) {
+        toast({
+          title: "Color already picked",
+          description: "This color is already in your palette",
+          variant: "destructive",
+        });
+      } else if (pickedColors.length >= 5) {
+        toast({
+          title: "Palette full",
+          description: "Remove a color first to add a new one",
+          variant: "destructive",
+        });
+      }
+
+      // Hide the preview
       setShowPreview(false);
       setCursorPosition(null);
       setIsLongPressing(false);
@@ -486,7 +520,7 @@ export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
                 <div className="absolute top-2 left-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
                   <Pipette className="w-3 h-3 inline mr-1" />
                   <span className="hidden sm:inline">Click to pick colors ({pickedColors.length}/5)</span>
-                  <span className="sm:hidden">Tap or long press to pick ({pickedColors.length}/5)</span>
+                  <span className="sm:hidden">Tap or hold+release to pick ({pickedColors.length}/5)</span>
                   {showPreview && <span className="ml-2 text-green-400">• ACTIVE</span>}
                 </div>
               )}
