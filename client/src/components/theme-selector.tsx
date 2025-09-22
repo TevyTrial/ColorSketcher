@@ -15,6 +15,7 @@ const themeLabels: Record<ThemeKey, { icon: string; name: string; description: s
 };
 
 export function ThemeSelector({ selectedTheme, onSelectTheme }: ThemeSelectorProps) {
+  // Force deployment update
   return (
     <section>
       <div className="sketchy-border p-6 bg-card">
