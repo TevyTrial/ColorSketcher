@@ -60,6 +60,7 @@ export function copyToClipboard(text: string): Promise<void> {
   return navigator.clipboard.writeText(text);
 }
 
+// Updated palettes v2.1
 export const THEME_PALETTES = {
   sunset: ['#FF6B6B', '#FF8E53', '#FFE66D', '#FF7F7F', '#FFB347'],
   ocean: ['#4ECDC4', '#44A08D', '#096DD9', '#73D3FF', '#00CED1'],

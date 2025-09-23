@@ -1,4 +1,5 @@
-// Keyword-based palette generation
+// Keyword-based palette generation v2.1
+// Force cache refresh for updated palettes
 
 export interface KeywordPalette {
   keyword: string;
