@@ -81,7 +81,7 @@ ColorSketcher is fully optimized for mobile devices:
 - **Auto-select on release** - no need to tap tiny grid boxes
 - **Responsive layout** that adapts to all screen sizes
 
-[🎥 Watch the responsive video]("https://github.com/user-attachments/assets/7a0688fb-6314-414e-9f38-79ff3bc37668")
+[🎥 Watch the responsive video](https://github.com/user-attachments/assets/7a0688fb-6314-414e-9f38-79ff3bc37668)
 ## 🎯 Use Cases
 
 ### For Designers
