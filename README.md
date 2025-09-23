@@ -47,7 +47,8 @@ Pre-designed color themes with psychological insights:
 
 ## 🚀 Live Demo
 
-<img width="1568" height="621" alt="video" src ="https://github.com/user-attachments/assets/6e8469a6-5bae-4954-abaa-15846689b8d0" />
+[🎥 Watch the demo video](https://github.com/user-attachments/assets/6e8469a6-5bae-4954-abaa-15846689b8d0)
+
 
 ## 🛠️ Tech Stack 
 (This is a AI-assisted coding project that not all code was written by me.)
@@ -80,7 +81,7 @@ ColorSketcher is fully optimized for mobile devices:
 - **Auto-select on release** - no need to tap tiny grid boxes
 - **Responsive layout** that adapts to all screen sizes
 
-<img width="1920" height="1080" alt="video" src ="https://github.com/user-attachments/assets/7a0688fb-6314-414e-9f38-79ff3bc37668" />
+[🎥 Watch the responsive video]("https://github.com/user-attachments/assets/7a0688fb-6314-414e-9f38-79ff3bc37668")
 ## 🎯 Use Cases
 
 ### For Designers
