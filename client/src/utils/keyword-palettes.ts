@@ -1,5 +1,6 @@
 // Keyword-based palette generation v2.1
 // Force cache refresh for updated palettes
+// Last updated: 2024
 
 export interface KeywordPalette {
   keyword: string;
