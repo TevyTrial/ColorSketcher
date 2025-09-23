@@ -8,6 +8,7 @@ interface ImageExtractorProps {
 }
 
 export function ImageExtractor({ onColorsExtracted }: ImageExtractorProps) {
+  // Force fresh deployment - v2.0
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
   const [isColorPickerMode, setIsColorPickerMode] = useState(false);
