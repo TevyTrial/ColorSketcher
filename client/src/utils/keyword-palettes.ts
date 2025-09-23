@@ -503,6 +503,13 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
     tags: ["dusk", "harbor", "blue", "calm"]
   },
   {
+    keyword: "rain forest",
+    category: "places",
+    colors: ["#C3C88C", "#30253E", "#638872", "#80B9B1", "#94C784"],
+    description: "Lush greens and earthy tones of a vibrant rainforest",
+    tags: ["green", "forest", "calm"]
+  },
+  {
   keyword: "cyber bloom",
   category: "places",
   colors: ["#00FFFF", "#FF1493", "#FF7033", "#ADFFAD", "#282A3E"],
@@ -522,6 +529,13 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   colors: ["#D2691E", "#8B4513", "#FF6347", "#DAA520", "#CD853F"],
   description: "Warm spice colors of bustling North African markets",
   tags: ["warm", "spice", "exotic", "vibrant"]
+},
+{
+  keyword: "beach bonfire",
+  category: "places",
+  colors: ["#578086","#74948C","#CFB580","#864E3E","#CA7C4C"],
+  description: "Warm and cozy colors of a beach bonfire at sunset",
+  tags:["cozy", "beach", "sunset"]
 },
   {
     keyword: "city skyline",
@@ -578,6 +592,13 @@ export const KEYWORD_PALETTES: KeywordPalette[] = [
   colors: ["#00FF41", "#003300", "#008F11", "#39FF14", "#000000"],
   description: "Green digital rain and matrix code aesthetics",
   tags: ["cyberpunk", "digital", "matrix", "code"]
+},
+{
+  keyword: "Sunset sea",
+  category: "places",
+  colors: ["#284139", "#809076", "#F8D794", "#BB6830", "#111A19"],
+  description: "Warm, glowing colors of the evening sea at sunset",
+  tags: ["sunset", "sea", "warm", "glow"]
 },
 
 
