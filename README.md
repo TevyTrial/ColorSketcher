@@ -3,6 +3,8 @@
 A modern, interactive color palette generator that helps designers and artists discover perfect color combinations from images, keywords, and themes.
 
 <img width="1568" height="621" alt="Image" src="https://github.com/user-attachments/assets/7d480c23-171f-4088-b054-ca55387360fe" />
+### Website
+https://colorsketcher.vercel.app/
 
 ## ✨ Features
 
@@ -98,9 +100,6 @@ ColorSketcher is fully optimized for mobile devices:
 - **Accessibility** color testing
 
 ## 🚀 Getting Started
-
-### Website
-https://colorsketcher.vercel.app/
 
 ### Prerequisites
 - Node.js 18+ installed
